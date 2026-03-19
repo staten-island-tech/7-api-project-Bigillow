@@ -7,9 +7,11 @@ def getMC(mc):
         return None
     
     data = response.json()
-    print(f"Status: {data["online"]}")
-    print(f"PLayer count: {data["players"]["online"]}")
-    print(f"Ip: {data["ip"]}")
-    print(f"Port: {data["port"]}")
+    # print(f"Status: {data["online"]}")
+    # print(f"PLayer count: {data["players"]["online"]}")
+    # print(f"Ip: {data["ip"]}")
+    # print(f"Port: {data["port"]}")
+    for player in data["players"]["list"]:
+        print(player["name"])
 
 getMC("donutsmp.net")
