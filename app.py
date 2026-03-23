@@ -1,7 +1,8 @@
 import requests
-
+player = []
 def getMC(mc):
     response = requests.get(f"https://api.mcsrvstat.us/3/{mc.lower()}")
+
     if response.status_code != 200:
         print("Error fetching data!")
         return None
@@ -13,5 +14,21 @@ def getMC(mc):
     # print(f"Port: {data["port"]}")
     for player in data["players"]["list"]:
         print(player["name"])
+        player.append(player["name"])
 
-getMC("donutsmp.net")
+
+def getAvatar(name):
+    answer = requests.get(f"https://playerdb.co/api/player/minecraft/{name.lower()}")
+
+    if answer.status_code != 200:
+        print("Error fetching data!")
+        return None
+    
+    playerinfo = answer.json()
+
+    for info in 
+
+
+
+
+getMC("donutsmp.net") 
