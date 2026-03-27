@@ -16,7 +16,6 @@ def streak(trees):
             high.append(streak_inc)
             streak_inc = 1
             streak_dec += 1
-        elif tree < lowest:
         elif int(tree) > int(highest) and int(tree) > int(lowest):
             highest = tree
             lowest = 0
