@@ -1,5 +1,5 @@
 import requests
-player = []
+people = []
 def getMC(mc):
     response = requests.get(f"https://api.mcsrvstat.us/3/{mc.lower()}")
 
@@ -14,7 +14,7 @@ def getMC(mc):
     # print(f"Port: {data["port"]}")
     for player in data["players"]["list"]:
         print(player["name"])
-        player.append(player["name"])
+        people.append(player["name"])
 
 
 def getAvatar(name):
@@ -26,7 +26,7 @@ def getAvatar(name):
     
     playerinfo = answer.json()
 
-    for info in 
+    for info in playerinfo["data"]["player"]: mavatar
 
 
 
