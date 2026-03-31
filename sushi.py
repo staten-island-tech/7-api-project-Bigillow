@@ -11,14 +11,24 @@ sushi_orders = [
     {"name": "California Roll", "price": 8}
 ]
 
-asd = {"name": "California Roll", "price": 8}
+
 def order(food_item):
     receipt = {}
     for item in food_item:
-        print(item)
+        if item['name'] in food_item:
+            receipt[item['name']]['qty'] +=1 
+        else:
+            receipt[item['name']] = {
+                'price': item['price'],
+                'qty': 1
+            }
+    for sushi, value in receipt.items():
+        price = value['price'] * value ['qty']
+        print(sushi, value['qty'], [price])
+
     
 
-order(asd)
+order(sushi_orders)
 
 
 
