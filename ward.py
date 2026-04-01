@@ -8,13 +8,20 @@ wards = {
 
 def dept(ward):
     department = {}
-    for key, value in ward.items():
-        for people in value:
-            if people in department['name']:
-               department['name'] = {
-               'Dept.' = key
-               } 
-            department['name'] = people
+    for dept, docs in ward.items():
+        for doc in docs:
+            # if doc in department:
+            #     department[doc] = {"Dept.": [dept]}
+            # department = {'Name': doc}
+            # if doc in department:
+            #     department[doc] = {
+            #         "Dept.": dept
+            #     }
+            if doc not in department:
+                department[doc] = []
+            department[doc].append(dept)
+    print(department)
+        
             
 
     
