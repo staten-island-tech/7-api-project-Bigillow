@@ -35,19 +35,22 @@
 
 import requests
 def getFact(number_of_facts, type_random_or_today):
-    response = requests.get(f"https://uselessfacts.jsph.pl/api/v2/facts/{type_random_or_today.lower()}")
 
-    if response.status_code != 200:
-        print("Error fetching data!")
-        return None
-    
-    data = response.json()
 
     for i in range(number_of_facts):
-        print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+        response = requests.get(f"https://uselessfacts.jsph.pl/api/v2/facts/{type_random_or_today.lower()}")
+
+        if response.status_code != 200:
+            print("Error fetching data!")
+            return None
+    
+        data = response.json()
+        print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+        print("Fact number " + str(i+1) + ":")
         print(type_random_or_today.capitalize() + "'s Fun Fact: " + data['text'])
         print("Source: " + data['source'])
         print("Source Link: " + data['source_url'])
-        print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+        if number_of_facts == 0 or number_of_facts == i+1:
+            print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
 
-getFact(1, "random")
+getFact(100, "random")
