@@ -57,7 +57,7 @@ cats = [
 
 def getCNJ(number_of_chucknorris_jokes, type_of_chucknorris_jokes): #"animal" "career" "celebrity" "dev" "explicit" "fashion" "food" "history" "money" "movie" "music" "political" "religion" "science""sport" "travel" "random"
     
-    
+
     for x in range(number_of_chucknorris_jokes): 
         if type_of_chucknorris_jokes.lower() == "random":
             num = random.randint(0, 15)
@@ -75,8 +75,9 @@ def getCNJ(number_of_chucknorris_jokes, type_of_chucknorris_jokes): #"animal" "c
         print("Joke number " + str(x+1) + ":")
         print(str(data_1['categories'][0]).capitalize() + " Joke: " + data_1['value'])
         print("Source Link: " + data_1['url'])
-        if number_of_chucknorris_jokes == 0 or number_of_chucknorris_jokes == x+1:
+        if number_of_chucknorris_jokes == x+1:
             print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+
 
 
 def getFact(number_of_facts, type_random_or_today): #random or today
@@ -95,22 +96,22 @@ def getFact(number_of_facts, type_random_or_today): #random or today
         print(type_random_or_today.capitalize() + "'s Fun Fact: " + data_2['text'])
         print("Source: " + data_2['source'])
         print("Source Link: " + data_2['source_url'])
-        if number_of_facts == 0 or number_of_facts == i+1:
+        if  number_of_facts == i+1:
             print(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
 
     
 
 def getEntertainment(CNJ_or_Fact):
     if CNJ_or_Fact.lower() == "cnj":
-        number = input("How many?")
+        number = int(input("How many?"))
         print("categories")
         for cat in cats:
             print(cat)
-        type = input("What category?")
-        getCNJ(number, type) #makestring
+        type = str(input("What category?"))
+        getCNJ(number, type) 
     elif CNJ_or_Fact.lower() == "fact":
-        number = input("How many?")
-        type = input("What category? Today or Random?")
+        number = int(input("How many?"))
+        type = str(input("What category? Today or Random?"))    
         getFact(number, type)
 
-getEntertainment("CNJ")
+getEntertainment("FACT")
